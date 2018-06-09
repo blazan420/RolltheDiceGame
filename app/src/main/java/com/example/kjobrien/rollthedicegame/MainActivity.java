@@ -26,20 +26,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        TextView txtNumber1 = (TextView)findViewById(R.id.txtNumber1);
-        TextView txtNumber2 = (TextView)findViewById(R.id.txtNumber2);
-        TextView txtNumber3 = (TextView)findViewById(R.id.txtNumber3);
-        TextView txtNumber4 = (TextView)findViewById(R.id.txtNumber4);
-        TextView txtNumber5 = (TextView)findViewById(R.id.txtNumber5);
-        TextView txtNumber6 = (TextView)findViewById(R.id.txtNumber6);
+        final TextView txtNumber1 = (TextView)findViewById(R.id.txtNumber1);
+        final TextView txtNumber2 = (TextView)findViewById(R.id.txtNumber2);
+        final TextView txtNumber3 = (TextView)findViewById(R.id.txtNumber3);
+        final TextView txtNumber4 = (TextView)findViewById(R.id.txtNumber4);
+        final TextView txtNumber5 = (TextView)findViewById(R.id.txtNumber5);
+        final TextView txtNumber6 = (TextView)findViewById(R.id.txtNumber6);
 
         ImageView imgDice = (findViewById(R.id.imgDice));
-        ImageView imgDiceNumber1 = (findViewById(R.id.imgDiceNumber1));
-        ImageView imgDiceNumber2 = (findViewById(R.id.imgDiceNumber2));
-        ImageView imgDiceNumber3 = (findViewById(R.id.imgDiceNumber3));
-        ImageView imgDiceNumber4 = (findViewById(R.id.imgDiceNumber4));
-        ImageView imgDiceNumber5 = (findViewById(R.id.imgDiceNumber5));
-        ImageView imgDiceNumber6 = (findViewById(R.id.imgDiceNumber6));
+        final ImageView imgDiceNumber1 = (findViewById(R.id.imgDiceNumber1));
+        final ImageView imgDiceNumber2 = (findViewById(R.id.imgDiceNumber2));
+        final ImageView imgDiceNumber3 = (findViewById(R.id.imgDiceNumber3));
+        final ImageView imgDiceNumber4 = (findViewById(R.id.imgDiceNumber4));
+        final ImageView imgDiceNumber5 = (findViewById(R.id.imgDiceNumber5));
+        final ImageView imgDiceNumber6 = (findViewById(R.id.imgDiceNumber6));
 
         Button btnRollTheDice = (Button)findViewById(R.id.btnRollTheDice);
 
@@ -48,9 +48,47 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 for (int rollTimes = 0; rollTimes <=5000000; rollTimes++) {
+
                     int faceNumber = 1 + secureRandomNumbers.nextInt(6);
 
+                    switch (faceNumber) {
+
+                        case 1:
+                            ++number1;
+                            break;
+                        case 2:
+                            ++number2;
+                            break;
+                        case 3:
+                            ++number3;
+                            break;
+                        case 4:
+                            ++number4;
+                            break;
+                        case 5:
+                            ++number5;
+                            break;
+                        case 6:
+                            ++number6;
+                            break;
+
+                    }
+
                 }
+
+                txtNumber1.setText(number1 + "");
+                txtNumber2.setText(number2 + "");
+                txtNumber3.setText(number3 + "");
+                txtNumber4.setText(number4 + "");
+                txtNumber5.setText(number5 + "");
+                txtNumber6.setText(number6 + "");
+
+                imgDiceNumber1.setImageResource(R.drawable.dice1);
+                imgDiceNumber2.setImageResource(R.drawable.dice2);
+                imgDiceNumber3.setImageResource(R.drawable.dice3);
+                imgDiceNumber4.setImageResource(R.drawable.dice4);
+                imgDiceNumber5.setImageResource(R.drawable.dice5);
+                imgDiceNumber6.setImageResource(R.drawable.dice6);
             }
         });
 
